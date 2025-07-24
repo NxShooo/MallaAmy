@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@400;700&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #fdfdfd;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  color: #b4004e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.logo {
+  height: 100px;
+  vertical-align: middle;
+  border-radius: 8px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.15));
+}
+
+.creador {
+  color: #888;
+  margin-bottom: 40px;
+  font-family: 'Merriweather', serif;
+  width: 100%;
+}
+
+.contenedor-malla {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.semestre {
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.semestre:nth-child(1),
+.semestre:nth-child(2),
+.semestre:nth-child(3) {
+  background: #ffe6f0;
+}
+
+.semestre:nth-child(4),
+.semestre:nth-child(5),
+.semestre:nth-child(6),
+.semestre:nth-child(7) {
+  background: #e6f7f5;
+}
+
+.semestre:nth-child(8),
+.semestre:nth-child(9) {
+  background: #f0f5ff;
+}
+
+.semestre:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.semestre h2 {
+  color: #b4004e;
+  margin-bottom: 15px;
+  font-family: 'Merriweather', serif;
+}
+
+.ramo {
+  background: #fff;
+  margin: 8px 0;
+  padding: 12px;
+  border-radius: 5px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.ramo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.4) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  transform: skewX(-25deg);
+}
+
+.ramo:hover::before {
+  animation: shimmer 0.75s forwards;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+.ramo:hover {
+  background: #fefefe;
+  transform: scale(1.03);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+.ramo[data-estado="aprobado"]::after {
+  content: "APROBADO";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 1.2em;
+  color: rgba(0, 180, 0, 0.2);
+  font-weight: bold;
+}
+
+.ramo[data-estado="reprobado"]::after {
+  content: "REPROBADO";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 1.2em;
+  color: rgba(255, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+.ramo[data-estado="cursando"]::after {
+  content: "CURSANDO";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 1.2em;
+  color: rgba(0, 0, 255, 0.2);
+  font-weight: bold;
+}
+
+/* NUEVO ESTILO PARA "PENDIENTE" */
+.ramo[data-estado="pendiente"]::after {
+ content: "PENDIENTE";
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%) rotate(-15deg);
+font-size: 1.2em;
+color: rgba(255, 165, 0, 0.5); /* Naranja más visible */
+font-weight: bold;
+}
+
+.sidebar {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  background: #f7f7f7;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  max-width: 250px;
+  z-index: 10;
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+  color: #b4004e;
+  margin-bottom: 15px;
+}
+
+.semestre-filtro {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+.semestre-filtro:last-child {
+  border-bottom: none;
+}
+
+.toggle-semestre {
+  background-color: #b4004e;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggle-semestre:hover {
+  background-color: #a00045;
+  transform: translateY(-2px);
+}
+
+.toggle-semestre::after {
+  content: '▼';
+  font-size: 0.8em;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-semestre.active::after {
+  content: '▲';
+  transform: rotate(180deg);
+}
+
+.ramos-semestre-filtro {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.3s ease-out;
+  padding: 0 5px;
+}
+
+.ramos-semestre-filtro.show {
+  max-height: 800px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.sidebar .marcador {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar .marcador:last-child {
+  border-bottom: none;
+}
+
+.sidebar p {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.toast-message {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(60, 179, 113, 0.9);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-message.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.toast-message.success {
+  background-color: rgba(60, 179, 113, 0.9);
+}
+
+.toast-message.info {
+  background-color: rgba(30, 144, 255, 0.9);
+}
+
+.toast-message.error {
+  background-color: rgba(220, 20, 60, 0.9);
+}
+
+.toast-message::before {
+  content: '✅';
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+.toast-message.info::before {
+  content: 'ℹ️';
+}
+
+.toast-message.error::before {
+  content: '❌';
+}
+
+@media (max-width: 1200px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .main-content {
+    padding: 0;
+    width: 100%;
+  }
+
+  h1, .creador {
+    width: auto;
+    padding: 0 10px;
+  }
+
+  .sidebar {
+    position: static;
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .contenedor-malla {
+    padding-left: 0;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .semestre {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .logo {
+    height: 80px;
+  }
+
+  .toast-message {
+    width: 90%;
+    max-width: 300px;
+    left: 5%;
+    transform: translateX(0);
+    text-align: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.mi-horario-boton {
+    background-color: #b4004e;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.mi-horario-boton:hover {
+    background-color: #a00045;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.mi-horario-boton:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.horario-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.horario-modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: relative;
+    animation: slideInTop 0.4s ease-out;
+}
+
+@keyframes slideInTop {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.cerrar-modal {
+    color: #888;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cerrar-modal:hover,
+.cerrar-modal:focus {
+    color: #b4004e;
+}
+
+.horario-modal-content h4 {
+    margin-top: 0;
+    color: #b4004e;
+    text-align: center;
+    margin-bottom: 25px;
+    font-family: 'Merriweather', serif;
+    font-size: 1.8em;
+}
+
+.horario-modal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.horario-modal-content th,
+.horario-modal-content td {
+    border: 1px solid #eee;
+    padding: 12px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.horario-modal-content th {
+    background-color: #e6f7f5;
+    color: #b4004e;
+    font-weight: bold;
+    font-family: 'Merriweather', serif;
+    padding: 15px 12px;
+}
+
+.horario-modal-content td {
+    background-color: #fff;
+    line-height: 1.4;
+    color: #555;
+}
+
+.horario-modal-content tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+@media (max-width: 768px) {
+    .horario-modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 20px;
+    }
+    .horario-modal-content table {
+        font-size: 0.85em;
+    }
+    .horario-modal-content th,
+    .horario-modal-content td {
+        padding: 8px;
+    }
+    .cerrar-modal {
+        font-size: 30px;
+        top: 10px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .horario-modal-content h4 {
+        font-size: 1.5em;
+    }
+    .horario-modal-content table {
+        font-size: 0.75em;
+    }
+}
