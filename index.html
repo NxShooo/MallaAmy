@@ -1,625 +1,659 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Malla Curricular Periodismo</title>
-  <link rel="stylesheet" href="estilos.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Añadido para responsividad -->
+    <title>Malla Curricular Periodismo</title>
+    <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
 
-  <div class="sidebar">
-    <h3>Marcar Estado</h3>
+    <!-- El div de toast-notification debe ir aquí, al inicio del body, para que siempre esté disponible -->
+    <div id="toast-notification" class="toast-message"></div>
 
-    <div class="semestre-filtro">
-      <button class="toggle-semestre">Semestre 1</button>
-      <div class="ramos-semestre-filtro">
-        <div class="marcador">
-          <p>Prensa Escrita I: Noticias</p>
-          <label><input type="radio" name="ramo11" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo11" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo11" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo11" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Redacción General</p>
-          <label><input type="radio" name="ramo12" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo12" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo12" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo12" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Historia Contemporánea</p>
-          <label><input type="radio" name="ramo13" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo13" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo13" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo13" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Comunicación y Realidad</p>
-          <label><input type="radio" name="ramo14" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo14" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo14" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo14" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Argumentación y Pensamiento Crítico</p>
-          <label><input type="radio" name="ramo15" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo15" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo15" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo15" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Curso de Inglés General I</p>
-          <label><input type="radio" name="ramo16" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo16" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo16" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo16" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Actualidad I</p>
-          <label><input type="radio" name="ramo17" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo17" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo17" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo17" value="pendiente"> Pendiente</label> </div>
-      </div>
+    <!-- Contenedor de Login -->
+    <div id="login-container" class="login-container">
+        <div class="login-box">
+            <h2>Inicia Sesión en tu Malla</h2>
+            <input type="email" id="login-email" class="login-input" placeholder="Correo electrónico">
+            <input type="password" id="login-password" class="login-input" placeholder="Contraseña">
+            <button id="login-button" class="login-button">Iniciar Sesión</button>
+            <p id="login-error-message" class="error-message"></p>
+        </div>
     </div>
 
-    <div class="semestre-filtro">
-      <button class="toggle-semestre">Semestre 2</button>
-      <div class="ramos-semestre-filtro">
-        <div class="marcador">
-          <p>Redacción Periodística</p>
-          <label><input type="radio" name="ramo21" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo21" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo21" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo21" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Digital I</p>
-          <label><input type="radio" name="ramo22" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo22" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo22" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo22" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Historia del Periodismo Chileno</p>
-          <label><input type="radio" name="ramo23" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo23" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo23" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo23" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Paradigmas de la Comunicación</p>
-          <label><input type="radio" name="ramo24" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo24" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo24" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo24" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Ideas Contemporáneas</p>
-          <label><input type="radio" name="ramo25" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo25" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo25" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo25" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Curso de Inglés General II</p>
-          <label><input type="radio" name="ramo26" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo26" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo26" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo26" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-          <p>Actualidad II</p>
-          <label><input type="radio" name="ramo27" value="aprobado"> Aprobado</label>
-          <label><input type="radio" name="ramo27" value="reprobado"> Reprobado</label>
-          <label><input type="radio" name="ramo27" value="cursando"> Cursando</label>
-          <label><input type="radio" name="ramo27" value="pendiente"> Pendiente</label> </div>
-      </div>
+    <!-- Contenedor principal de la aplicación, oculto al inicio -->
+    <div id="app-content" style="display: none; flex-direction: row; width: 100%;">
+
+        <div class="sidebar">
+            <h3>Marcar Estado</h3>
+
+            <div class="semestre-filtro">
+                <button class="toggle-semestre">Semestre 1</button>
+                <div class="ramos-semestre-filtro">
+                    <div class="marcador">
+                        <p>Prensa Escrita I: Noticias</p>
+                        <label><input type="radio" name="ramo11" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo11" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo11" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo11" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Redacción General</p>
+                        <label><input type="radio" name="ramo12" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo12" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo12" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo12" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Historia Contemporánea</p>
+                        <label><input type="radio" name="ramo13" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo13" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo13" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo13" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Comunicación y Realidad</p>
+                        <label><input type="radio" name="ramo14" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo14" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo14" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo14" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Argumentación y Pensamiento Crítico</p>
+                        <label><input type="radio" name="ramo15" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo15" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo15" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo15" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Curso de Inglés General I</p>
+                        <label><input type="radio" name="ramo16" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo16" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo16" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo16" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Actualidad I</p>
+                        <label><input type="radio" name="ramo17" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo17" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo17" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo17" value="pendiente"> Pendiente</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="semestre-filtro">
+                <button class="toggle-semestre">Semestre 2</button>
+                <div class="ramos-semestre-filtro">
+                    <div class="marcador">
+                        <p>Redacción Periodística</p>
+                        <label><input type="radio" name="ramo21" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo21" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo21" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo21" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Digital I</p>
+                        <label><input type="radio" name="ramo22" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo22" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo22" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo22" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Historia del Periodismo Chileno</p>
+                        <label><input type="radio" name="ramo23" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo23" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo23" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo23" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Paradigmas de la Comunicación</p>
+                        <label><input type="radio" name="ramo24" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo24" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo24" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo24" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Ideas Contemporáneas</p>
+                        <label><input type="radio" name="ramo25" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo25" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo25" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo25" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Curso de Inglés General II</p>
+                        <label><input type="radio" name="ramo26" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo26" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo26" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo26" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Actualidad II</p>
+                        <label><input type="radio" name="ramo27" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo27" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo27" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo27" value="pendiente"> Pendiente</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="semestre-filtro">
+                <button class="toggle-semestre">Semestre 3</button>
+                <div class="ramos-semestre-filtro">
+                    <div class="marcador">
+                        <p>Caja de Herramientas del Periodista</p>
+                        <label><input type="radio" name="ramo31" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo31" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo31" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo31" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Audiovisual I: Locución e Imagen</p>
+                        <label><input type="radio" name="ramo32" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo32" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo32" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo32" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Digital II</p>
+                        <label><input type="radio" name="ramo33" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo33" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo33" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo33" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Investigación en Comunicación Social I</p>
+                        <label><input type="radio" name="ramo34" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo34" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo34" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo34" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Chile entre Siglos</p>
+                        <label><input type="radio" name="ramo35" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo35" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo35" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo35" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Curso de Inglés General III</p>
+                        <label><input type="radio" name="ramo36" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo36" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo36" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo36" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Actualidad III</p>
+                        <label><input type="radio" name="ramo37" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo37" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo37" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo37" value="pendiente"> Pendiente</label>
+                    </div>
+                </div>
+            </div>
+            <div class="semestre-filtro">
+                <button class="toggle-semestre">Semestre 4</button>
+                <div class="ramos-semestre-filtro">
+                    <div class="marcador">
+                        <p>Redacción Digital I</p>
+                        <label><input type="radio" name="ramo41" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo41" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo41" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo41" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Audiovisual II: Lenguaje y Guion</p>
+                        <label><input type="radio" name="ramo42" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo42" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo42" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo42" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Periodismo Fotográfico</p>
+                        <label><input type="radio" name="ramo43" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo43" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo43" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo43" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Investigación en Comunicación Social II</p>
+                        <label><input type="radio" name="ramo44" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo44" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo44" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo44" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Chile en el Siglo XX</p>
+                        <label><input type="radio" name="ramo45" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo45" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo45" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo45" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Introducción a la Economía</p>
+                        <label><input type="radio" name="ramo46" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo46" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo46" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo46" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Actualidad IV</p>
+                        <label><input type="radio" name="ramo47" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo47" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo47" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo47" value="pendiente"> Pendiente</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="semestre-filtro">
+                <button class="toggle-semestre">Semestre 5</button>
+                <div class="ramos-semestre-filtro">
+                    <div class="marcador">
+                        <p>Prensa Escrita II: Crónicas y Perfiles</p>
+                        <label><input type="radio" name="ramo51" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo51" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo51" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo51" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Audiovisual III: Noticias</p>
+                        <label><input type="radio" name="ramo52" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo52" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo52" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo52" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Ética y Legislación Periodística</p>
+                        <label><input type="radio" name="ramo53" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo53" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo53" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo53" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Comunicación Estratégica</p>
+                        <label><input type="radio" name="ramo54" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo54" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo54" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo54" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Taller de Actualidad Económica</p>
+                        <label><input type="radio" name="ramo55" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo55" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo55" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo55" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Electivo I</p>
+                        <label><input type="radio" name="ramo56" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo56" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo56" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo56" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Actualidad V</p>
+                        <label><input type="radio" name="ramo57" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo57" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo57" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo57" value="pendiente"> Pendiente</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="semestre-filtro">
+                <button class="toggle-semestre">Semestre 6</button>
+                <div class="ramos-semestre-filtro">
+                    <div class="marcador">
+                        <p>Taller de Reportajes Interpretativos</p>
+                        <label><input type="radio" name="ramo61" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo61" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo61" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo61" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Periodismo Radial</p>
+                        <label><input type="radio" name="ramo62" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo62" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo62" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo62" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Digital III: Periodismo de Datos y Visualización</p>
+                        <label><input type="radio" name="ramo63" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo63" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo63" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo63" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Comunicación Organizacional</p>
+                        <label><input type="radio" name="ramo64" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo64" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo64" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo64" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Instituciones y Procesos Políticos</p>
+                        <label><input type="radio" name="ramo65" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo65" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo65" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo65" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Curso de Formación General</p>
+                        <label><input type="radio" name="ramo66" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo66" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo66" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo66" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Actualidad VI</p>
+                        <label><input type="radio" name="ramo67" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo67" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo67" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo67" value="pendiente"> Pendiente</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="semestre-filtro">
+                <button class="toggle-semestre">Semestre 7</button>
+                <div class="ramos-semestre-filtro">
+                    <div class="marcador">
+                        <p>Periodismo de Investigación</p>
+                        <label><input type="radio" name="ramo71" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo71" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo71" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo71" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Audiovisual IV: Reportaje y Producción</p>
+                        <label><input type="radio" name="ramo72" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo72" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo72" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo72" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Podcast y Crónicas Radiales</p>
+                        <label><input type="radio" name="ramo73" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo73" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo73" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo73" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Audiencias y Opinión Pública</p>
+                        <label><input type="radio" name="ramo74" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo74" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo74" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo74" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Taller de Reporte de Actualidad</p>
+                        <label><input type="radio" name="ramo75" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo75" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo75" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo75" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Curso de Formación General</p>
+                        <label><input type="radio" name="ramo76" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo76" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo76" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo76" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Práctica I</p>
+                        <label><input type="radio" name="ramo77" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo77" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo77" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo77" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Actualidad VII</p>
+                        <label><input type="radio" name="ramo78" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo78" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo78" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo78" value="pendiente"> Pendiente</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="semestre-filtro">
+                <button class="toggle-semestre">Semestre 8</button>
+                <div class="ramos-semestre-filtro">
+                    <div class="marcador">
+                        <p>Redacción Digital II</p>
+                        <label><input type="radio" name="ramo81" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo81" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo81" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo81" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Audiovisual V: Documental Audiovisual</p>
+                        <label><input type="radio" name="ramo82" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo82" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo82" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo82" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Electivo II</p>
+                        <label><input type="radio" name="ramo83" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo83" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo83" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo83" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Gestión de Crisis</p>
+                        <label><input type="radio" name="ramo84" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo84" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo84" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo84" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Curso de Formación General</p>
+                        <label><input type="radio" name="ramo85" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo85" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo85" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo85" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Electivo III</p>
+                        <label><input type="radio" name="ramo86" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo86" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo86" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo86" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Actualidad VIII</p>
+                        <label><input type="radio" name="ramo87" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo87" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo87" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo87" value="pendiente"> Pendiente</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="semestre-filtro">
+                <button class="toggle-semestre">Semestre 9</button>
+                <div class="ramos-semestre-filtro">
+                    <div class="marcador">
+                        <p>Proyecto de Título</p>
+                        <label><input type="radio" name="ramo91" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo91" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo91" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo91" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Gestión de Medios</p>
+                        <label><input type="radio" name="ramo92" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo92" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo92" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo92" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Electivo IV</p>
+                        <label><input type="radio" name="ramo93" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo93" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo93" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo93" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Práctica II</p>
+                        <label><input type="radio" name="ramo94" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo94" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo94" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo94" value="pendiente"> Pendiente</label>
+                    </div>
+                    <div class="marcador">
+                        <p>Curso de Formación General</p>
+                        <label><input type="radio" name="ramo95" value="aprobado"> Aprobado</label>
+                        <label><input type="radio" name="ramo95" value="reprobado"> Reprobado</label>
+                        <label><input type="radio" name="ramo95" value="cursando"> Cursando</label>
+                        <label><input type="radio" name="ramo95" value="pendiente"> Pendiente</label>
+                    </div>
+                </div>
+            </div>
+
+           
+
+        </div> <!-- FIN del div sidebar -->
+
+        <div class="main-content">
+            <h1>
+                <img src="https://www.learnchile.cl/wp-content/uploads/2022/03/UDP_Logo_sitioLCH.jpg" alt="Logo UDP" class="logo" />
+                Malla Curricular de Periodismo
+            </h1>
+            <button class="mi-horario-boton">Mi Horario</button>
+            <p class="creador">Creada con amor por NxShooo 💖</p>
+
+            <div class="contenedor-malla">
+                <div class="semestre">
+                    <h2>1° Semestre</h2>
+                    <div class="ramo" data-ramo="ramo11">Prensa Escrita I: Noticias</div>
+                    <div class="ramo" data-ramo="ramo12">Redacción General</div>
+                    <div class="ramo" data-ramo="ramo13">Historia Contemporánea</div>
+                    <div class="ramo" data-ramo="ramo14">Comunicación y Realidad</div>
+                    <div class="ramo" data-ramo="ramo15">Argumentación y Pensamiento Crítico</div>
+                    <div class="ramo" data-ramo="ramo16">Curso de Inglés General I</div>
+                    <div class="ramo" data-ramo="ramo17">Actualidad I</div>
+                </div>
+
+                <div class="semestre">
+                    <h2>2° Semestre</h2>
+                    <div class="ramo" data-ramo="ramo21">Redacción Periodística</div>
+                    <div class="ramo" data-ramo="ramo22">Digital I</div>
+                    <div class="ramo" data-ramo="ramo23">Historia del Periodismo Chileno</div>
+                    <div class="ramo" data-ramo="ramo24">Paradigmas de la Comunicación</div>
+                    <div class="ramo" data-ramo="ramo25">Ideas Contemporáneas</div>
+                    <div class="ramo" data-ramo="ramo26">Curso de Inglés General II</div>
+                    <div class="ramo" data-ramo="ramo27">Actualidad II</div>
+                </div>
+                <div class="semestre">
+                    <h2>3° Semestre</h2>
+                    <div class="ramo" data-ramo="ramo31">Caja de Herramientas del Periodista</div>
+                    <div class="ramo" data-ramo="ramo32">Audiovisual I: Locución e Imagen</div>
+                    <div class="ramo" data-ramo="ramo33">Digital II</div>
+                    <div class="ramo" data-ramo="ramo34">Investigación en Comunicación Social I</div>
+                    <div class="ramo" data-ramo="ramo35">Chile entre Siglos</div>
+                    <div class="ramo" data-ramo="ramo36">Curso de Inglés General III</div>
+                    <div class="ramo" data-ramo="ramo37">Actualidad III</div>
+                </div>
+                <div class="semestre">
+                    <h2>4° Semestre</h2>
+                    <div class="ramo" data-ramo="ramo41">Redacción Digital I</div>
+                    <div class="ramo" data-ramo="ramo42">Audiovisual II: Lenguaje y Guion</div>
+                    <div class="ramo" data-ramo="ramo43">Periodismo Fotográfico</div>
+                    <div class="ramo" data-ramo="ramo44">Investigación en Comunicación Social II</div>
+                    <div class="ramo" data-ramo="ramo45">Chile en el Siglo XX</div>
+                    <div class="ramo" data-ramo="ramo46">Introducción a la Economía</div>
+                    <div class="ramo" data-ramo="ramo47">Actualidad IV</div>
+                </div>
+                <div class="semestre">
+                    <h2>5° Semestre</h2>
+                    <div class="ramo" data-ramo="ramo51">Prensa Escrita II: Crónicas y Perfiles</div>
+                    <div class="ramo" data-ramo="ramo52">Audiovisual III: Noticias</div>
+                    <div class="ramo" data-ramo="ramo53">Ética y Legislación Periodística</div>
+                    <div class="ramo" data-ramo="ramo54">Comunicación Estratégica</div>
+                    <div class="ramo" data-ramo="ramo55">Taller de Actualidad Económica</div>
+                    <div class="ramo" data-ramo="ramo56">Electivo I</div>
+                    <div class="ramo" data-ramo="ramo57">Actualidad V</div>
+                </div>
+                <div class="semestre">
+                    <h2>6° Semestre</h2>
+                    <div class="ramo" data-ramo="ramo61">Taller de Reportajes Interpretativos</div>
+                    <div class="ramo" data-ramo="ramo62">Periodismo Radial</div>
+                    <div class="ramo" data-ramo="ramo63">Digital III: Periodismo de Datos y Visualización</div>
+                    <div class="ramo" data-ramo="ramo64">Comunicación Organizacional</div>
+                    <div class="ramo" data-ramo="ramo65">Instituciones y Procesos Políticos</div>
+                    <div class="ramo" data-ramo="ramo66">Curso de Formación General</div>
+                    <div class="ramo" data-ramo="ramo67">Actualidad VI</div>
+                </div>
+                <div class="semestre">
+                    <h2>7° Semestre</h2>
+                    <div class="ramo" data-ramo="ramo71">Periodismo de Investigación</div>
+                    <div class="ramo" data-ramo="ramo72">Audiovisual IV: Reportaje y Producción</div>
+                    <div class="ramo" data-ramo="ramo73">Podcast y Crónicas Radiales</div>
+                    <div class="ramo" data-ramo="ramo74">Audiencias y Opinión Pública</div>
+                    <div class="ramo" data-ramo="ramo75">Taller de Reporte de Actualidad</div>
+                    <div class="ramo" data-ramo="ramo76">Curso de Formación General</div>
+                    <div class="ramo" data-ramo="ramo77">Práctica I</div>
+                    <div class="ramo" data-ramo="ramo78">Actualidad VII</div>
+                </div>
+                <div class="semestre">
+                    <h2>8° Semestre</h2>
+                    <div class="ramo" data-ramo="ramo81">Redacción Digital II</div>
+                    <div class="ramo" data-ramo="ramo82">Audiovisual V: Documental Audiovisual</div>
+                    <div class="ramo" data-ramo="ramo83">Electivo II</div>
+                    <div class="ramo" data-ramo="ramo84">Gestión de Crisis</div>
+                    <div class="ramo" data-ramo="ramo85">Curso de Formación General</div>
+                    <div class="ramo" data-ramo="ramo86">Electivo III</div>
+                    <div class="ramo" data-ramo="ramo87">Actualidad VIII</div>
+                </div>
+                <div class="semestre">
+                    <h2>9° Semestre</h2>
+                    <div class="ramo" data-ramo="ramo91">Proyecto de Título</div>
+                    <div class="ramo" data-ramo="ramo92">Gestión de Medios</div>
+                    <div class="ramo" data-ramo="ramo93">Electivo IV</div>
+                    <div class="ramo" data-ramo="ramo94">Práctica II</div>
+                    <div class="ramo" data-ramo="ramo95">Curso de Formación General</div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="semestre-filtro">
-      <button class="toggle-semestre">Semestre 3</button>
-      <div class="ramos-semestre-filtro">
-        <div class="marcador">
-            <p>Caja de Herramientas del Periodista</p>
-            <label><input type="radio" name="ramo31" value="aprobado"> Aprobado</label>
-            <label><input type="radio" name="ramo31" value="reprobado"> Reprobado</label>
-            <label><input type="radio" name="ramo31" value="cursando"> Cursando</label>
-            <label><input type="radio" name="ramo31" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-            <p>Audiovisual I: Locución e Imagen</p>
-            <label><input type="radio" name="ramo32" value="aprobado"> Aprobado</label>
-            <label><input type="radio" name="ramo32" value="reprobado"> Reprobado</label>
-            <label><input type="radio" name="ramo32" value="cursando"> Cursando</label>
-            <label><input type="radio" name="ramo32" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-            <p>Digital II</p>
-            <label><input type="radio" name="ramo33" value="aprobado"> Aprobado</label>
-            <label><input type="radio" name="ramo33" value="reprobado"> Reprobado</label>
-            <label><input type="radio" name="ramo33" value="cursando"> Cursando</label>
-            <label><input type="radio" name="ramo33" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-            <p>Investigación en Comunicación Social I</p>
-            <label><input type="radio" name="ramo34" value="aprobado"> Aprobado</label>
-            <label><input type="radio" name="ramo34" value="reprobado"> Reprobado</label>
-            <label><input type="radio" name="ramo34" value="cursando"> Cursando</label>
-            <label><input type="radio" name="ramo34" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-            <p>Chile entre Siglos</p>
-            <label><input type="radio" name="ramo35" value="aprobado"> Aprobado</label>
-            <label><input type="radio" name="ramo35" value="reprobado"> Reprobado</label>
-            <label><input type="radio" name="ramo35" value="cursando"> Cursando</label>
-            <label><input type="radio" name="ramo35" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-            <p>Curso de Inglés General III</p>
-            <label><input type="radio" name="ramo36" value="aprobado"> Aprobado</label>
-            <label><input type="radio" name="ramo36" value="reprobado"> Reprobado</label>
-            <label><input type="radio" name="ramo36" value="cursando"> Cursando</label>
-            <label><input type="radio" name="ramo36" value="pendiente"> Pendiente</label> </div>
-        <div class="marcador">
-            <p>Actualidad III</p>
-            <label><input type="radio" name="ramo37" value="aprobado"> Aprobado</label>
-            <label><input type="radio" name="ramo37" value="reprobado"> Reprobado</label>
-            <label><input type="radio" name="ramo37" value="cursando"> Cursando</label>
-            <label><input type="radio" name="ramo37" value="pendiente"> Pendiente</label> </div>
-      </div>
-    </div>
-    <div class="semestre-filtro">
-      <button class="toggle-semestre">Semestre 4</button>
-      <div class="ramos-semestre-filtro">
-          <div class="marcador">
-              <p>Redacción Digital I</p>
-              <label><input type="radio" name="ramo41" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo41" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo41" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo41" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Audiovisual II: Lenguaje y Guion</p>
-              <label><input type="radio" name="ramo42" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo42" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo42" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo42" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Periodismo Fotográfico</p>
-              <label><input type="radio" name="ramo43" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo43" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo43" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo43" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Investigación en Comunicación Social II</p>
-              <label><input type="radio" name="ramo44" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo44" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo44" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo44" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Chile en el Siglo XX</p>
-              <label><input type="radio" name="ramo45" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo45" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo45" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo45" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Introducción a la Economía</p>
-              <label><input type="radio" name="ramo46" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo46" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo46" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo46" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Actualidad IV</p>
-              <label><input type="radio" name="ramo47" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo47" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo47" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo47" value="pendiente"> Pendiente</label> </div>
-      </div>
+    <!-- Modal del Horario: MOVIDO AQUÍ, justo antes de los scripts -->
+    <div id="horario-modal" class="horario-modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal close-button">&times;</span>
+            <h4>Mi Horario de Clases</h4>
+            <div class="horario-controls">
+                <button id="toggle-edit-horario" class="mi-horario-boton active">Ver Horario</button>
+                <button id="edit-json-button" class="mi-horario-boton">Editar JSON</button>
+            </div>
+            <div id="horario-display" style="display: block;">
+                <!-- Aquí se renderizará la tabla del horario -->
+            </div>
+            <textarea id="horario-json-input" class="horario-json-input" style="display: none;"></textarea>
+            <button id="save-horario" class="mi-horario-boton" style="display: none; margin-top: 20px;">Guardar Horario</button>
+        </div>
+
+        
     </div>
 
-    <div class="semestre-filtro">
-      <button class="toggle-semestre">Semestre 5</button>
-      <div class="ramos-semestre-filtro">
-          <div class="marcador">
-              <p>Prensa Escrita II: Crónicas y Perfiles</p>
-              <label><input type="radio" name="ramo51" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo51" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo51" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo51" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Audiovisual III: Noticias</p>
-              <label><input type="radio" name="ramo52" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo52" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo52" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo52" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Ética y Legislación Periodística</p>
-              <label><input type="radio" name="ramo53" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo53" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo53" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo53" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Comunicación Estratégica</p>
-              <label><input type="radio" name="ramo54" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo54" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo54" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo54" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Taller de Actualidad Económica</p>
-              <label><input type="radio" name="ramo55" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo55" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo55" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo55" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Electivo I</p>
-              <label><input type="radio" name="ramo56" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo56" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo56" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo56" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Actualidad V</p>
-              <label><input type="radio" name="ramo57" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo57" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo57" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo57" value="pendiente"> Pendiente</label> </div>
-      </div>
-    </div>
+    <!-- Botón de Cerrar Sesión: AÑADIDO AQUÍ, al final del body -->
 
-    <div class="semestre-filtro">
-      <button class="toggle-semestre">Semestre 6</button>
-      <div class="ramos-semestre-filtro">
-          <div class="marcador">
-              <p>Taller de Reportajes Interpretativos</p>
-              <label><input type="radio" name="ramo61" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo61" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo61" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo61" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Periodismo Radial</p>
-              <label><input type="radio" name="ramo62" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo62" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo62" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo62" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Digital III: Periodismo de Datos y Visualización</p>
-              <label><input type="radio" name="ramo63" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo63" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo63" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo63" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Comunicación Organizacional</p>
-              <label><input type="radio" name="ramo64" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo64" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo64" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo64" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Instituciones y Procesos Políticos</p>
-              <label><input type="radio" name="ramo65" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo65" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo65" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo65" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Curso de Formación General</p>
-              <label><input type="radio" name="ramo66" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo66" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo66" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo66" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Actualidad VI</p>
-              <label><input type="radio" name="ramo67" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo67" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo67" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo67" value="pendiente"> Pendiente</label> </div>
-      </div>
-    </div>
+    <div style="margin-top: 20px; text-align: center;">
+    <button id="logout-button" class="mi-horario-boton">Cerrar Sesión</button>
+</div>
+    
 
-    <div class="semestre-filtro">
-      <button class="toggle-semestre">Semestre 7</button>
-      <div class="ramos-semestre-filtro">
-          <div class="marcador">
-              <p>Periodismo de Investigación</p>
-              <label><input type="radio" name="ramo71" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo71" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo71" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo71" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Audiovisual IV: Reportaje y Producción</p>
-              <label><input type="radio" name="ramo72" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo72" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo72" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo72" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Podcast y Crónicas Radiales</p>
-              <label><input type="radio" name="ramo73" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo73" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo73" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo73" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Audiencias y Opinión Pública</p>
-              <label><input type="radio" name="ramo74" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo74" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo74" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo74" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Taller de Reporte de Actualidad</p>
-              <label><input type="radio" name="ramo75" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo75" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo75" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo75" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Curso de Formación General</p>
-              <label><input type="radio" name="ramo76" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo76" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo76" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo76" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Práctica I</p>
-              <label><input type="radio" name="ramo77" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo77" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo77" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo77" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Actualidad VII</p>
-              <label><input type="radio" name="ramo78" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo78" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo78" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo78" value="pendiente"> Pendiente</label> </div>
-      </div>
-    </div>
-
-    <div class="semestre-filtro">
-      <button class="toggle-semestre">Semestre 8</button>
-      <div class="ramos-semestre-filtro">
-          <div class="marcador">
-              <p>Redacción Digital II</p>
-              <label><input type="radio" name="ramo81" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo81" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo81" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo81" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Audiovisual V: Documental Audiovisual</p>
-              <label><input type="radio" name="ramo82" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo82" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo82" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo82" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Electivo II</p>
-              <label><input type="radio" name="ramo83" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo83" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo83" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo83" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Gestión de Crisis</p>
-              <label><input type="radio" name="ramo84" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo84" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo84" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo84" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Curso de Formación General</p>
-              <label><input type="radio" name="ramo85" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo85" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo85" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo85" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Electivo III</p>
-              <label><input type="radio" name="ramo86" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo86" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo86" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo86" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Actualidad VIII</p>
-              <label><input type="radio" name="ramo87" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo87" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo87" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo87" value="pendiente"> Pendiente</label> </div>
-      </div>
-    </div>
-
-    <div class="semestre-filtro">
-      <button class="toggle-semestre">Semestre 9</button>
-      <div class="ramos-semestre-filtro">
-          <div class="marcador">
-              <p>Proyecto de Título</p>
-              <label><input type="radio" name="ramo91" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo91" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo91" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo91" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Gestión de Medios</p>
-              <label><input type="radio" name="ramo92" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo92" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo92" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo92" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Electivo IV</p>
-              <label><input type="radio" name="ramo93" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo93" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo93" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo93" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Práctica II</p>
-              <label><input type="radio" name="ramo94" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo94" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo94" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo94" value="pendiente"> Pendiente</label> </div>
-          <div class="marcador">
-              <p>Curso de Formación General</p>
-              <label><input type="radio" name="ramo95" value="aprobado"> Aprobado</label>
-              <label><input type="radio" name="ramo95" value="reprobado"> Reprobado</label>
-              <label><input type="radio" name="ramo95" value="cursando"> Cursando</label>
-              <label><input type="radio" name="ramo95" value="pendiente"> Pendiente</label> </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="main-content">
-    <h1>
-      <img src="https://www.learnchile.cl/wp-content/uploads/2022/03/UDP_Logo_sitioLCH.jpg" alt="Logo UDP" class="logo" />
-      Malla Curricular de Periodismo
-    </h1>
-    <button class="mi-horario-boton">Mi Horario</button>
-    <p class="creador">Creada con amor por NxShooo 💖</p>
-
-    <div class="contenedor-malla">
-      <div class="semestre">
-        <h2>1° Semestre</h2>
-        <div class="ramo" data-ramo="ramo11">Prensa Escrita I: Noticias</div>
-        <div class="ramo" data-ramo="ramo12">Redacción General</div>
-        <div class="ramo" data-ramo="ramo13">Historia Contemporánea</div>
-        <div class="ramo" data-ramo="ramo14">Comunicación y Realidad</div>
-        <div class="ramo" data-ramo="ramo15">Argumentación y Pensamiento Crítico</div>
-        <div class="ramo" data-ramo="ramo16">Curso de Inglés General I</div>
-        <div class="ramo" data-ramo="ramo17">Actualidad I</div>
-      </div>
-
-      <div class="semestre">
-        <h2>2° Semestre</h2>
-        <div class="ramo" data-ramo="ramo21">Redacción Periodística</div>
-        <div class="ramo" data-ramo="ramo22">Digital I</div>
-        <div class="ramo" data-ramo="ramo23">Historia del Periodismo Chileno</div>
-        <div class="ramo" data-ramo="ramo24">Paradigmas de la Comunicación</div>
-        <div class="ramo" data-ramo="ramo25">Ideas Contemporáneas</div>
-        <div class="ramo" data-ramo="ramo26">Curso de Inglés General II</div>
-        <div class="ramo" data-ramo="ramo27">Actualidad II</div>
-      </div>
-
-      <div class="semestre">
-        <h2>3° Semestre</h2>
-        <div class="ramo" data-ramo="ramo31">Caja de Herramientas del Periodista</div>
-        <div class="ramo" data-ramo="ramo32">Audiovisual I: Locución e Imagen</div>
-        <div class="ramo" data-ramo="ramo33">Digital II</div>
-        <div class="ramo" data-ramo="ramo34">Investigación en Comunicación Social I</div>
-        <div class="ramo" data-ramo="ramo35">Chile entre Siglos</div>
-        <div class="ramo" data-ramo="ramo36">Curso de Inglés General III</div>
-        <div class="ramo" data-ramo="ramo37">Actualidad III</div>
-      </div>
-
-      <div class="semestre">
-        <h2>4° Semestre</h2>
-        <div class="ramo" data-ramo="ramo41">Redacción Digital I</div>
-        <div class="ramo" data-ramo="ramo42">Audiovisual II: Lenguaje y Guion</div>
-        <div class="ramo" data-ramo="ramo43">Periodismo Fotográfico</div>
-        <div class="ramo" data-ramo="ramo44">Investigación en Comunicación Social II</div>
-        <div class="ramo" data-ramo="ramo45">Chile en el Siglo XX</div>
-        <div class="ramo" data-ramo="ramo46">Introducción a la Economía</div>
-        <div class="ramo" data-ramo="ramo47">Actualidad IV</div>
-      </div>
-
-      <div class="semestre">
-        <h2>5° Semestre</h2>
-        <div class="ramo" data-ramo="ramo51">Prensa Escrita II: Crónicas y Perfiles</div>
-        <div class="ramo" data-ramo="ramo52">Audiovisual III: Noticias</div>
-        <div class="ramo" data-ramo="ramo53">Ética y Legislación Periodística</div>
-        <div class="ramo" data-ramo="ramo54">Comunicación Estratégica</div>
-        <div class="ramo" data-ramo="ramo55">Taller de Actualidad Económica</div>
-        <div class="ramo" data-ramo="ramo56">Electivo I</div>
-        <div class="ramo" data-ramo="ramo57">Actualidad V</div>
-      </div>
-
-      <div class="semestre">
-        <h2>6° Semestre</h2>
-        <div class="ramo" data-ramo="ramo61">Taller de Reportajes Interpretativos</div>
-        <div class="ramo" data-ramo="ramo62">Periodismo Radial</div>
-        <div class="ramo" data-ramo="ramo63">Digital III: Periodismo de Datos y Visualización</div>
-        <div class="ramo" data-ramo="ramo64">Comunicación Organizacional</div>
-        <div class="ramo" data-ramo="ramo65">Instituciones y Procesos Políticos</div>
-        <div class="ramo" data-ramo="ramo66">Curso de Formación General</div>
-        <div class="ramo" data-ramo="ramo67">Actualidad VI</div>
-      </div>
-
-      <div class="semestre">
-        <h2>7° Semestre</h2>
-        <div class="ramo" data-ramo="ramo71">Periodismo de Investigación</div>
-        <div class="ramo" data-ramo="ramo72">Audiovisual IV: Reportaje y Producción</div>
-        <div class="ramo" data-ramo="ramo73">Podcast y Crónicas Radiales</div>
-        <div class="ramo" data-ramo="ramo74">Audiencias y Opinión Pública</div>
-        <div class="ramo" data-ramo="ramo75">Taller de Reporte de Actualidad</div>
-        <div class="ramo" data-ramo="ramo76">Curso de Formación General</div>
-        <div class="ramo" data-ramo="ramo77">Práctica I</div>
-        <div class="ramo" data-ramo="ramo78">Actualidad VII</div>
-      </div>
-
-      <div class="semestre">
-        <h2>8° Semestre</h2>
-        <div class="ramo" data-ramo="ramo81">Redacción Digital II</div>
-        <div class="ramo" data-ramo="ramo82">Audiovisual V: Documental Audiovisual</div>
-        <div class="ramo" data-ramo="ramo83">Electivo II</div>
-        <div class="ramo" data-ramo="ramo84">Gestión de Crisis</div>
-        <div class="ramo" data-ramo="ramo85">Curso de Formación General</div>
-        <div class="ramo" data-ramo="ramo86">Electivo III</div>
-        <div class="ramo" data-ramo="ramo87">Actualidad VIII</div>
-      </div>
-
-      <div class="semestre">
-        <h2>9° Semestre</h2>
-        <div class="ramo" data-ramo="ramo91">Proyecto de Título</div>
-        <div class="ramo" data-ramo="ramo92">Gestión de Medios</div>
-        <div class="ramo" data-ramo="ramo93">Electivo IV</div>
-        <div class="ramo" data-ramo="ramo94">Práctica II</div>
-        <div class="ramo" data-ramo="ramo95">Curso de Formación General</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="horario-modal">
-    <div class="horario-modal-content">
-      <span class="cerrar-modal">&times;</span>
-      <h4>Horario Segundo Semestre 2024</h4>
-      <table>
-        <thead>
-          <tr>
-            <th>Hora</th>
-            <th>Lunes</th>
-            <th>Martes</th>
-            <th>Miércoles</th>
-            <th>Jueves</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>3.30 - 9.50</td>
-            <td></td>
-            <td></td>
-            <td>AYUDANTIA Periodismo de Investigación <br> ???? Sala: Lab 104</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>1.00 - 11.20</td>
-            <td>Audiovisual IV: Reportaje <br> María Pia Astaburuaga <br> Sala: 301</td>
-            <td>Podcast y Crónicas Radiales <br> Nicolás Alonso <br> Sala: Lab 102</td>
-            <td>AYUDANTIA Audiovisual IV: Reportaje <br> ???? Sala: de Edición</td>
-            <td>Periodismo de Investigación <br> Jorge Rojas <br> Sala: Med. Sala Alfa</td>
-          </tr>
-          <tr>
-            <td>11.30 - 12.50</td>
-            <td>Audiovisual IV: Reportaje <br> María Pia Astaburuaga <br> Sala: 301</td>
-            <td>Podcast y Crónicas Radiales <br> Nicolás Alonso <br> Sala: Lab 102</td>
-            <td></td>
-            <td>Periodismo de Investigación <br> Jorge Rojas <br> Sala: Med. Sala Alfa</td>
-          </tr>
-          <tr>
-            <td>1.00 - 14.30</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>ACTUALIDAD 7 <br> Sala: 404</td>
-          </tr>
-          <tr>
-            <td>14.30 - 15.50</td>
-            <td></td>
-            <td>Taller de Reporteo de Actualidad <br> Alberto Luengo <br> Sala: 510</td>
-            <td>Audiencia y Opinión Pública <br> Claudio Carvajal <br> Sala: 509</td>
-            <td>Taller de Reporteo de Actualidad <br> Alberto Luengo <br> Sala: 504</td>
-          </tr>
-          <tr>
-            <td>16.00 - 17.20</td>
-            <td></td>
-            <td>DHO: Crítica Cinematográfica <br> Rubén García <br> Sala: Derecho 303</td>
-            <td>Audiencia y Opinión Pública <br> Claudio Carvajal <br> Sala: 509</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>17.25 - 18.45</td>
-            <td></td>
-            <td>DHO: Crítica Cinematográfica <br> Nicolás Alonso <br> Sala: Derecho 303</td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-  
-  <div id="toast-notification" class="toast-message"></div>
-
-  <script src="script.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    
+    <!-- Tu script principal -->
+    <script src="script.js"></script>
 </body>
 </html>

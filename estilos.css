@@ -1,387 +1,353 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito:wght@400;700&display=swap');
 
+/* Estilos Generales y Resets */
 body {
-  font-family: 'Nunito', sans-serif;
-  background: #fdfdfd;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    background: #fdfdfd;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    /* --- MODIFICACIONES AQUI --- */
+    display: grid; /* Cambiado a grid */
+    grid-template-columns: auto 1fr; /* Una columna para el sidebar (auto) y una para el contenido (1fr) */
+    grid-template-rows: 1fr; /* Una sola fila que ocupe el resto del espacio */
+    min-height: 100vh;
+    /* --- FIN MODIFICACIONES --- */
 }
 
+/* Contenido Principal de la Malla */
 .main-content {
-  flex-grow: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+    flex-grow: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* --- MODIFICACIONES AQUI --- */
+    grid-column: 2; /* Asegura que el main-content esté en la segunda columna del grid */
+    grid-row: 1; /* Y en la primera fila */
+    /* --- FIN MODIFICACIONES --- */
 }
 
 h1 {
-  color: #b4004e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-bottom: 20px;
+    color: #b4004e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .logo {
-  height: 100px;
-  vertical-align: middle;
-  border-radius: 8px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 3px rgba(0,0,0,0.15));
+    height: 100px;
+    vertical-align: middle;
+    border-radius: 8px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 3px rgba(0,0,0,0.15));
 }
 
 .creador {
-  color: #888;
-  margin-bottom: 40px;
-  font-family: 'Merriweather', serif;
-  width: 100%;
+    color: #888;
+    margin-bottom: 40px;
+    font-family: 'Merriweather', serif;
+    width: 100%;
 }
 
 .contenedor-malla {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  max-width: 1400px;
-  width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1400px;
+    width: 100%;
 }
 
 .semestre {
-  border-radius: 10px;
-  padding: 20px;
-  width: 250px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .semestre:nth-child(1),
 .semestre:nth-child(2),
 .semestre:nth-child(3) {
-  background: #ffe6f0;
+    background: #ffe6f0; /* Rosado claro */
 }
 
 .semestre:nth-child(4),
 .semestre:nth-child(5),
 .semestre:nth-child(6),
 .semestre:nth-child(7) {
-  background: #e6f7f5;
+    background: #e6f7f5; /* Verde azulado claro */
 }
 
 .semestre:nth-child(8),
 .semestre:nth-child(9) {
-  background: #f0f5ff;
+    background: #f0f5ff; /* Azul claro */
 }
 
 .semestre:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
 .semestre h2 {
-  color: #b4004e;
-  margin-bottom: 15px;
-  font-family: 'Merriweather', serif;
+    color: #b4004e; /* Color principal */
+    margin-bottom: 15px;
+    font-family: 'Merriweather', serif;
 }
 
 .ramo {
-  background: #fff;
-  margin: 8px 0;
-  padding: 12px;
-  border-radius: 5px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
-  cursor: default;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    background: #fff;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .ramo::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.4) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  transform: skewX(-25deg);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.4) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-25deg);
 }
 
 .ramo:hover::before {
-  animation: shimmer 0.75s forwards;
+    animation: shimmer 0.75s forwards;
 }
 
 @keyframes shimmer {
-  0% {
-    left: -75%;
-  }
-  100% {
-    left: 125%;
-  }
+    0% {
+        left: -75%;
+    }
+    100% {
+        left: 125%;
+    }
 }
 
 .ramo:hover {
-  background: #fefefe;
-  transform: scale(1.03);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    background: #fefefe;
+    transform: scale(1.03);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
 }
 
+/* Estados de los ramos con pseudo-elementos */
 .ramo[data-estado="aprobado"]::after {
-  content: "APROBADO";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-15deg);
-  font-size: 1.2em;
-  color: rgba(0, 180, 0, 0.2);
-  font-weight: bold;
+    content: "APROBADO";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 1.2em;
+    color: rgba(0, 180, 0, 0.2);
+    font-weight: bold;
 }
 
 .ramo[data-estado="reprobado"]::after {
-  content: "REPROBADO";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-15deg);
-  font-size: 1.2em;
-  color: rgba(255, 0, 0, 0.2);
-  font-weight: bold;
+    content: "REPROBADO";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 1.2em;
+    color: rgba(255, 0, 0, 0.2);
+    font-weight: bold;
 }
 
 .ramo[data-estado="cursando"]::after {
-  content: "CURSANDO";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-15deg);
-  font-size: 1.2em;
-  color: rgba(0, 0, 255, 0.2);
-  font-weight: bold;
+    content: "CURSANDO";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 1.2em;
+    color: rgba(0, 0, 255, 0.2);
+    font-weight: bold;
 }
 
-/* NUEVO ESTILO PARA "PENDIENTE" */
 .ramo[data-estado="pendiente"]::after {
- content: "PENDIENTE";
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%) rotate(-15deg);
-font-size: 1.2em;
-color: rgba(255, 165, 0, 0.5); /* Naranja más visible */
-font-weight: bold;
+    content: "PENDIENTE";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 1.2em;
+    color: rgba(255, 165, 0, 0.5); /* Naranja más visible */
+    font-weight: bold;
 }
 
+/* Sidebar y Filtros */
 .sidebar {
-  position: fixed;
-  left: 20px;
-  top: 20px;
-  background: #f7f7f7;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  max-width: 250px;
-  z-index: 10;
-  height: calc(100vh - 40px);
-  overflow-y: auto;
+    /* --- MODIFICACIONES AQUI --- */
+    position: sticky; /* Cambiado de 'fixed' a 'sticky' */
+    top: 20px; /* Se mantiene pegado al top 20px al hacer scroll */
+    left: auto; /* Elimina la dependencia de 'left: 20px' de 'fixed' */
+    /* --- FIN MODIFICACIONES --- */
+    background: #f7f7f7;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    max-width: 250px;
+    z-index: 10; /* Mantener z-index si hay otros elementos flotantes */
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    /* --- MODIFICACIONES AQUI --- */
+    grid-column: 1; /* Asegura que el sidebar esté en la primera columna del grid */
+    grid-row: 1; /* Y en la primera fila */
+    margin-left: 20px; /* Agrega el margen izquierdo que tenías con position fixed */
+    /* --- FIN MODIFICACIONES --- */
 }
 
 .sidebar h3 {
-  margin-top: 0;
-  color: #b4004e;
-  margin-bottom: 15px;
+    margin-top: 0;
+    color: #b4004e;
+    margin-bottom: 15px;
 }
 
 .semestre-filtro {
-  margin-bottom: 10px;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 .semestre-filtro:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .toggle-semestre {
-  background-color: #b4004e;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-  font-size: 1.1em;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background-color: #b4004e;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .toggle-semestre:hover {
-  background-color: #a00045;
-  transform: translateY(-2px);
+    background-color: #a00045;
+    transform: translateY(-2px);
 }
 
 .toggle-semestre::after {
-  content: '▼';
-  font-size: 0.8em;
-  margin-left: 10px;
-  transition: transform 0.3s ease;
+    content: '▼';
+    font-size: 0.8em;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
 }
 
 .toggle-semestre.active::after {
-  content: '▲';
-  transform: rotate(180deg);
+    content: '▲';
+    transform: rotate(180deg);
 }
 
 .ramos-semestre-filtro {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease-out, padding 0.3s ease-out;
-  padding: 0 5px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.3s ease-out;
+    padding: 0 5px;
 }
 
 .ramos-semestre-filtro.show {
-  max-height: 800px;
-  padding-top: 10px;
-  padding-bottom: 5px;
+    max-height: 800px; /* Suficiente para expandir */
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 .sidebar .marcador {
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
 }
 
 .sidebar .marcador:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .sidebar p {
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-size: 0.9em;
-  color: #555;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    color: #555;
 }
 
+/* Toast Notifications */
 .toast-message {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(60, 179, 113, 0.9);
-  color: white;
-  padding: 12px 25px;
-  border-radius: 8px;
-  font-size: 1.1em;
-  font-weight: bold;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(60, 179, 113, 0.9);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .toast-message.show {
-  opacity: 1;
-  visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
 
 .toast-message.success {
-  background-color: rgba(60, 179, 113, 0.9);
+    background-color: rgba(60, 179, 113, 0.9);
 }
 
 .toast-message.info {
-  background-color: rgba(30, 144, 255, 0.9);
+    background-color: rgba(30, 144, 255, 0.9);
 }
 
 .toast-message.error {
-  background-color: rgba(220, 20, 60, 0.9);
+    background-color: rgba(220, 20, 60, 0.9);
 }
 
 .toast-message::before {
-  content: '✅';
-  margin-right: 5px;
-  font-size: 1.2em;
+    content: '✅';
+    margin-right: 5px;
+    font-size: 1.2em;
 }
 
 .toast-message.info::before {
-  content: 'ℹ️';
+    content: 'ℹ️';
 }
 
 .toast-message.error::before {
-  content: '❌';
+    content: '❌';
 }
 
-@media (max-width: 1200px) {
-  body {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .main-content {
-    padding: 0;
-    width: 100%;
-  }
-
-  h1, .creador {
-    width: auto;
-    padding: 0 10px;
-  }
-
-  .sidebar {
-    position: static;
-    width: 90%;
-    max-width: 600px;
-    margin-bottom: 30px;
-    height: auto;
-    overflow-y: visible;
-  }
-
-  .contenedor-malla {
-    padding-left: 0;
-    margin-left: 0;
-    width: 100%;
-  }
-
-  .semestre {
-    width: 90%;
-    max-width: 300px;
-  }
-
-  .logo {
-    height: 80px;
-  }
-
-  .toast-message {
-    width: 90%;
-    max-width: 300px;
-    left: 5%;
-    transform: translateX(0);
-    text-align: center;
-    flex-direction: column;
-    gap: 5px;
-  }
-}
-
+/* Botón "Mi Horario" */
 .mi-horario-boton {
     background-color: #b4004e;
     color: white;
@@ -392,7 +358,7 @@ font-weight: bold;
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    margin-bottom: 30px;
+    margin-bottom: 30px; /* Margen para el botón principal */
     box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -409,8 +375,8 @@ font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
+/* Modal del Horario */
 .horario-modal {
-    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -421,6 +387,20 @@ font-weight: bold;
     background-color: rgba(0,0,0,0.6);
     backdrop-filter: blur(5px);
     animation: fadeIn 0.3s ease-out;
+    /* Estas propiedades aseguran que el modal esté centrado cuando se muestre */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* ¡Esta es la clave! Ocultar el modal por defecto, el JS lo mostrará */
+    visibility: hidden; /* Oculta el elemento visualmente */
+    opacity: 0; /* Lo hace transparente */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición para la aparición */
+}
+
+/* Clase que el JavaScript añadirá para mostrar el modal */
+.horario-modal.show-modal {
+    visibility: visible;
+    opacity: 1;
 }
 
 @keyframes fadeIn {
@@ -428,9 +408,9 @@ font-weight: bold;
     to { opacity: 1; }
 }
 
-.horario-modal-content {
+.modal-contenido { /* Esta es la clase correcta para el contenido del modal */
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: 5% auto; /* Ajustado para centrado vertical */
     padding: 30px;
     border-radius: 12px;
     width: 90%;
@@ -461,7 +441,7 @@ font-weight: bold;
     color: #b4004e;
 }
 
-.horario-modal-content h4 {
+.modal-contenido h4 {
     margin-top: 0;
     color: #b4004e;
     text-align: center;
@@ -470,53 +450,159 @@ font-weight: bold;
     font-size: 1.8em;
 }
 
-.horario-modal-content table {
+/* Estilos para la tabla del horario (generada por JS) */
+.horario-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 15px;
-    font-size: 1em;
-    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 0.95em;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden; /* Para que los bordes redondeados se apliquen a la tabla */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
-.horario-modal-content th,
-.horario-modal-content td {
-    border: 1px solid #eee;
-    padding: 12px;
-    text-align: center;
+.horario-table th,
+.horario-table td {
+    border: 1px solid #e0e0e0;
+    padding: 12px 15px;
+    text-align: left;
     vertical-align: top;
 }
 
-.horario-modal-content th {
-    background-color: #e6f7f5;
-    color: #b4004e;
-    font-weight: bold;
-    font-family: 'Merriweather', serif;
-    padding: 15px 12px;
-}
-
-.horario-modal-content td {
-    background-color: #fff;
-    line-height: 1.4;
+.horario-table th {
+    background-color: #f0f0f0;
     color: #555;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.horario-modal-content tr:nth-child(even) td {
+.horario-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
+.horario-table td {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Estilos para el textarea de JSON (oculto por defecto) */
+.horario-json-input {
+    font-family: 'Consolas', 'Monaco', monospace; /* Fuente monoespaciada para código */
+    font-size: 0.9em;
+    background-color: #282c34; /* Fondo oscuro */
+    color: #abb2bf; /* Texto claro */
+    border: 1px solid #61dafb;
+    border-radius: 5px;
+    padding: 15px;
+    resize: vertical; /* Permitir redimensionar verticalmente */
+    min-height: 200px; /* Un poco más alto por defecto */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y border en el ancho */
+}
+
+/* Estilos para los botones de control del horario (Ver Tabla / Editar JSON) */
+.horario-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.horario-controls .mi-horario-boton {
+    margin-bottom: 0; /* Eliminar el margen inferior que ya tiene el botón general */
+    padding: 8px 15px;
+    font-size: 0.95em;
+    box-shadow: none; /* Quitar sombra para que se vea más como pestaña */
+    border: 1px solid #b4004e;
+    background-color: #fff;
+    color: #b4004e;
+}
+
+.horario-controls .mi-horario-boton.active {
+    background-color: #b4004e;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.horario-controls .mi-horario-boton:hover:not(.active) {
+    background-color: #f0f0f0;
+    transform: translateY(0); /* Evitar el efecto de "levantar" en los botones de control */
+    box-shadow: none;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+    body {
+        /* Revertir a flex-direction: column para pantallas pequeñas */
+        display: flex; /* Volvemos a flexbox */
+        flex-direction: column; /* Apilamos elementos */
+        align-items: center;
+        padding: 20px;
+        grid-template-columns: none; /* Desactivar grid para móviles */
+    }
+
+    .main-content {
+        padding: 0;
+        width: 100%;
+        grid-column: auto; /* Desactivar posicionamiento de grid */
+        grid-row: auto;
+    }
+
+    h1, .creador {
+        width: auto;
+        padding: 0 10px;
+    }
+
+    .sidebar {
+        position: static; /* Volver a estático para que ocupe espacio normal */
+        width: 90%;
+        max-width: 600px;
+        margin-bottom: 30px;
+        height: auto;
+        overflow-y: visible;
+        grid-column: auto; /* Desactivar posicionamiento de grid */
+        grid-row: auto;
+        margin-left: 0; /* Eliminar el margen si está estático */
+    }
+
+    .contenedor-malla {
+        padding-left: 0;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .semestre {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .logo {
+        height: 80px;
+    }
+
+    .toast-message {
+        width: 90%;
+        max-width: 300px;
+        left: 5%;
+        transform: translateX(0);
+        text-align: center;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
 @media (max-width: 768px) {
-    .horario-modal-content {
+    .modal-contenido {
         width: 95%;
         margin: 10% auto;
         padding: 20px;
     }
-    .horario-modal-content table {
+    .horario-table {
         font-size: 0.85em;
     }
-    .horario-modal-content th,
-    .horario-modal-content td {
+    .horario-table th,
+    .horario-table td {
         padding: 8px;
     }
     .cerrar-modal {
@@ -524,13 +610,150 @@ font-weight: bold;
         top: 10px;
         right: 15px;
     }
+    .horario-controls { /* Ajuste para móviles */
+        flex-direction: column;
+        gap: 8px;
+    }
+    .horario-controls .mi-horario-boton {
+        width: 100%; /* Botones de control ocupan todo el ancho */
+    }
 }
 
 @media (max-width: 500px) {
-    .horario-modal-content h4 {
+    .modal-contenido h4 {
         font-size: 1.5em;
     }
-    .horario-modal-content table {
+    .horario-table {
         font-size: 0.75em;
+    }
+}
+
+/* Estilos para la pantalla de Login */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la ventana */
+    width: 100%;
+    background: linear-gradient(135deg, #b4004e 0%, #ff6f61 100%); /* Degradado vibrante */
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    position: absolute; /* Para que ocupe todo el espacio */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Asegura que esté por encima de todo */
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.15); /* Fondo semitransparente */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    backdrop-filter: blur(10px); /* Efecto de desenfoque detrás del cuadro */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.login-box h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-family: 'Merriweather', serif;
+}
+
+.login-input {
+    width: calc(100% - 20px); /* Ancho completo menos padding */
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo casi blanco */
+    color: #333;
+    font-size: 1.1em;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.login-input::placeholder {
+    color: #888;
+}
+
+.login-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5), inset 0 1px 3px rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+.login-button {
+    background-color: #61dafb; /* Azul claro vibrante */
+    color: #282c34;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.login-button:hover {
+    background-color: #4dc2ea;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.error-message {
+    color: #ffdddd; /* Rojo claro para mensajes de error */
+    margin-top: 15px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Asegurarse de que el app-content esté oculto cuando el login-container se muestre */
+#app-content {
+    display: none; /* Esto ya debería estar en tu CSS, pero lo reconfirmo */
+}
+
+/* Media Queries para responsividad del Login */
+@media (max-width: 600px) {
+    .login-box {
+        padding: 30px 20px;
+        margin: 0 20px;
+    }
+
+    .login-box h2 {
+        font-size: 1.8em;
+    }
+
+    .login-input, .login-button {
+        font-size: 1em;
+        padding: 12px 10px;
     }
 }
